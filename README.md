@@ -10,14 +10,14 @@ Node provides the RESTful API. Angular provides the frontend and accesses the AP
 
 ## Installation
 
-1. Clone the repository: `git clone git@github.com:scotch-io/node-todo`
+1. Clone the repository: `git clone git@github.com:i009162/node-todo-endb`
 2. Install the application: `npm install`
 3. Start the server: `node server.js`
 4. View in browser at `http://localhost:8080`
 
 ## Tutorial Series
 
-This repo corresponds to the Node Todo Tutorial Series on [scotch.io](http://scotch.io)
+This repo corresponds to the Node Todo Tutorial Series on but modified swapping out mongo for NeDB [scotch.io](http://scotch.io)
 
 Each branch represents a certain tutorial.
 - tut1-starter: [Creating a Single Page Todo App with Node and Angular](http://scotch.io/tutorials/javascript/creating-a-single-page-todo-app-with-node-and-angular)
