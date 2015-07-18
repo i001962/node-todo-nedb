@@ -2,7 +2,7 @@ var Todo = require('./models/todo');
 
 module.exports = function(app) {
 
-	// api ---------------------------------------------------------------------
+	// api ---------------------------------------------------------------
 	// get all todos
 	app.get('/api/todos', function(req, res) {
 		// use NeDB Todo.find({}, ... get all todos in the in memory database
