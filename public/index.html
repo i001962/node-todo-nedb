@@ -33,19 +33,20 @@
 
 		<!-- HEADER AND TODO COUNT -->
 		<div class="jumbotron text-center">
-			<h1>I'm a Todo-aholic <span class="label label-info">{{ todos.length }}</span></h1>
+			<h1><span class="label label-info">{{ todos.length }}</span> Articles to review</h1>
 		</div>
 
 		<!-- TODO LIST -->
 		<div id="todo-list" class="row">
 			<div class="col-sm-4 col-sm-offset-4">
 
-				
+				<h2>Send to Buffer</h2>
+
 
 				<!-- LOOP OVER THE TODOS IN $scope.todos -->
 				<div class="checkbox" ng-repeat="todo in todos">
 					<label>
-						<input type="checkbox" ng-click="deleteTodo(todo._id)"> {{ todo.text }}
+						<input type="checkbox" ng-click="deleteTodo(todo._id)"> {{ todo.done + todo.title + todo.link }}
 					</label>
 				</div>
 
@@ -61,9 +62,9 @@
 			<div class="col-sm-8 col-sm-offset-2 text-center">
 				<form>
 					<div class="form-group">
-
+<p>https://www.google.com/alerts/feeds/15796129130210979564/3541824829348603639<p>
 						<!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
-						<input type="text" class="form-control input-lg text-center" placeholder="I want to buy a puppy that will love me forever" ng-model="formData.text">
+						<input type="text" class="form-control input-lg text-center" placeholder="https://www.google.com/alerts/feeds/15796129130210979564/3541824829348603639" ng-model="formData.text">
 					</div>
 
 					<!-- createToDo() WILL CREATE NEW TODOS -->
@@ -72,10 +73,10 @@
 			</div>
 		</div>
 
-		<div class="text-center text-muted">
+		<!-- <div class="text-center text-muted">
 			<p>A demo by <a href="http://scotch.io">Scotch</a>.</p>
 			<p>Read the <a href="http://scotch.io/tutorials/javascript/creating-a-single-page-todo-app-with-node-and-angular">tutorial</a>.</p>
-		</div>
+		</div> -->
 
 	</div>
 

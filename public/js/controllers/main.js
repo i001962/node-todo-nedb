@@ -1,3 +1,4 @@
+
 angular.module('todoController', [])
 
 	// inject the Todo service factory into our controller
@@ -13,7 +14,15 @@ angular.module('todoController', [])
 				$scope.todos = data;
 				$scope.loading = false;
 			});
-
+			// RSSLOAD =====================================================================
+			// when landing on the page, get all rss feed articls and show them
+			// use the service to get all the todos
+			// Todos.rssload()
+			// 	.success(function(data) {
+			// 		$scope.todos = data;
+			// 		$scope.loading = false;
+			// 		console.log('in rssload main controller');
+			// 	});
 		// CREATE ==================================================================
 		// when submitting the add form, send the text to the node API
 		$scope.createTodo = function() {
@@ -22,18 +31,23 @@ angular.module('todoController', [])
 			// if form is empty, nothing will happen
 			if ($scope.formData.text != undefined) {
 				$scope.loading = true;
+				feed($scope.formData.text, function(err, articles) {
+				         if (err) throw err;
+				         for (i = 0; i < articles.length; i++) {
+				             var StrippedString = articles[i].title.replace(/(<([^>]+)>)/ig, "");
 
-				// call the create function from our service (returns a promise object)
-				Todos.create($scope.formData)
-
-					// if successful creation, call our get function to get all the new todos
-					.success(function(data) {
-						$scope.loading = false;
-						$scope.formData = {}; // clear the form so our user is ready to enter another
-						$scope.todos = data; // assign our new list of todos
-					});
-			}
-		};
+											// call the create function from our service (returns a promise object)
+								//			Todos.create($scope.formData)
+									Todos.create(StrippedString)
+											// if successful creation, call our get function to get all the new todos
+											.success(function(data) {
+												$scope.loading = false;
+												$scope.formData = {}; // clear the form so our user is ready to enter another
+												$scope.todos = data; // assign our new list of todos
+											});
+									}
+						});
+					}};
 
 		// DELETE ==================================================================
 		// delete a todo after checking it
